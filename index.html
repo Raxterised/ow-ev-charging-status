@@ -133,6 +133,43 @@
   </dialog>
 
   <div id="toastRoot" class="toast-root" aria-live="polite" aria-relevant="additions"></div>
-<script type="module" src="app.js"></script>
+<!-- History Modal -->
+<dialog id="historyModal" class="modal">
+  <form method="dialog" class="modal-card" id="historyForm">
+    <div class="modal-head">
+      <h2>Recent activity</h2>
+      <button class="icon-btn" value="cancel" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="pill">Shows the latest updates across all chargers</div>
+        <button id="clearPinBtn" class="btn btn-ghost" type="button" title="Forget saved PIN on this device">Forget PIN</button>
+      </div>
+      <div id="historyList" class="history-list"></div>
+    </div>
+  </form>
+</dialog>
+
+<!-- PIN Modal -->
+<dialog id="pinModal" class="modal">
+  <form method="dialog" class="modal-card" id="pinForm">
+    <div class="modal-head">
+      <h2>Enter access PIN</h2>
+    </div>
+    <div class="modal-body">
+      <p class="fineprint">This prevents accidental or unauthorized changes. PIN is stored only on your device.</p>
+      <div class="field">
+        <label for="pinInput">PIN <span class="req">*</span></label>
+        <input id="pinInput" inputmode="numeric" maxlength="4" pattern="\d{4}" placeholder="4-digit PIN" />
+      </div>
+      <div class="row">
+        <button id="pinSaveBtn" class="btn btn-primary" type="button">Save PIN</button>
+        <button class="btn btn-ghost" value="cancel">Cancel</button>
+      </div>
+    </div>
+  </form>
+</dialog>
+  
+  <script type="module" src="app.js"></script>
 </body>
 </html>
